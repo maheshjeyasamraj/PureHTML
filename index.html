@@ -3,239 +3,670 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PureHTML – Code-First Web Agency</title>
+  
+<title>PureHTML | Premium Web Studio</title>
+  <link rel="icon" href="x-icon.png" type="image/x-icon">
+
+  <!-- Bootstrap 5.3 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <!-- AOS Animation Library -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+
+
+
+
+
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background: #0d0d0d;
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at center, #060606 0%, #000000 100%);
       color: #fff;
-      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
-    .hero {
+
+    .hero-futuristic {
+      position: relative;
       height: 100vh;
-      background: linear-gradient(to bottom, #111, #0f0f0f);
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
       text-align: center;
-      color: #fff;
-      padding: 2rem;
-      position: relative;
       overflow: hidden;
     }
-    .falling-icons {
+
+    .hero-futuristic .bg-grid {
       position: absolute;
       top: 0;
       left: 0;
+      width: 200%;
+      height: 200%;
+      background-image: repeating-linear-gradient(0deg, transparent, transparent 29px, rgba(255, 255, 255, 0.03) 30px),
+                        repeating-linear-gradient(90deg, transparent, transparent 29px, rgba(255, 255, 255, 0.03) 30px);
+      animation: scrollGrid 60s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes scrollGrid {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-30px, -30px); }
+    }
+
+    .bg-holograms {
+      position: absolute;
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 0;
+      z-index: 1;
     }
-    .falling-icon {
+
+    .bg-holograms svg {
       position: absolute;
-      top: -40px;
-      font-size: 24px;
-      animation: fall linear;
-      color: #ffd700;
+      width: 150px;
+      height: 150px;
+      opacity: 0.05;
+      fill: #0fffc1;
+      animation: floatSvg 12s ease-in-out infinite alternate;
     }
-    @keyframes fall {
-      to {
-        transform: translateY(110vh);
-        opacity: 0;
+
+    .bg-holograms svg:nth-child(2) {
+      top: 10%;
+      left: 15%;
+      animation-delay: 3s;
+    }
+    .bg-holograms svg:nth-child(3) {
+      top: 70%;
+      left: 80%;
+      animation-delay: 6s;
+    }
+    .bg-holograms svg:nth-child(4) {
+      top: 50%;
+      left: 45%;
+      animation-delay: 9s;
+    }
+
+    @keyframes floatSvg {
+      from { transform: translateY(0) scale(1); opacity: 0.04; }
+      to { transform: translateY(-20px) scale(1.1); opacity: 0.08; }
+    }
+
+    h1 {
+      font-size: 5rem;
+      background: linear-gradient(90deg, #0fffc1, #f9cb28);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      z-index: 2;
+      animation: flicker 3s infinite;
+    }
+
+    p {
+      font-size: 1.25rem;
+      color: #ccc;
+      max-width: 700px;
+      z-index: 2;
+      animation: fadeIn 2s ease;
+    }
+
+    .btn-futuristic {
+      background: transparent;
+      color: #0fffc1;
+      border: 2px solid #0fffc1;
+      padding: 12px 32px;
+      font-size: 1rem;
+      border-radius: 50px;
+      margin-top: 2rem;
+      z-index: 2;
+      transition: 0.3s;
+    }
+
+    .btn-futuristic:hover {
+      background: #0fffc1;
+      color: #000;
+      box-shadow: 0 0 20px #0fffc1aa;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <section class="hero-futuristic">
+    <div class="bg-grid"></div>
+    <div class="bg-holograms">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+      <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/></svg>
+      <svg viewBox="0 0 24 24"><polygon points="12,2 22,22 2,22"/></svg>
+    </div>
+    <h1>PureHTML</h1>
+    <p>Hyper-futuristic experiences. Scalable design systems. Code made beautiful.</p>
+    <a href="#contact" class="btn-futuristic">Launch Project 🚀</a>
+  </section>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+
+
+
+
+
+
+
+
+
+<!-- ✅ Enhanced About Section with Glow, AOS, CountUp, Typing Effect -->
+<section id="about" class="bg-black text-white py-5 position-relative overflow-hidden">
+  <div class="container position-relative z-1">
+    <div class="row align-items-center g-5">
+
+      <!-- 🔥 Image Glow Card -->
+      <div class="col-md-5 text-center" data-aos="fade-right">
+        <div class="glow-wrap position-relative d-inline-block">
+          <img src="mahesh.png" alt="Mahesh J - Social Media Specialist"
+            class="img-fluid rounded-4 shadow-lg" style="max-width: 100%; object-fit: cover;">
+          <div class="glow"></div>
+        </div>
+      </div>
+
+      <!-- 🧠 Content Side -->
+      <div class="col-md-7" data-aos="fade-left">
+        <h2 class="display-5 fw-bold mb-3 text-gradient">Who Am I?</h2>
+        <p class="lead text-light">
+          I’m <strong>Mahesh J</strong>, a <span class="typed-role fw-semibold text-warning"></span> based in Bangalore.
+          I blend scroll-stopping <strong class="keyword">creative</strong> with data-driven
+          <strong class="keyword">strategy</strong> to help brands grow and convert.
+        </p>
+        <p>
+          Whether it’s building <strong class="keyword">lead-gen funnels</strong>, running <strong class="keyword">Meta Ads</strong> or crafting
+          a compelling <strong class="keyword">digital story,</strong> <br> I bring <span class="wave-highlight">clarity, consistency & creativity</span> to the table.
+        </p>
+
+        <!-- Stats Grid -->
+        <div class="row text-center mt-5 g-3">
+          <div class="col-6 col-md-3">
+            <div class="stat-card shadow p-3 rounded-4">
+              <h3 class="text-info fw-bold mb-0"><span class="count" data-target="16">0</span>+</h3>
+              <small>Clients</small>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-card shadow p-3 rounded-4">
+              <h3 class="text-success fw-bold mb-0"><span class="count" data-target="3">0</span>+</h3>
+              <small>Years Exp</small>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-card shadow p-3 rounded-4">
+              <h3 class="text-danger fw-bold mb-0">📍</h3>
+              <small>Bangalore</small>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-card shadow p-3 rounded-4">
+              <h3 class="text-warning fw-bold mb-0">🔥</h3>
+              <small>Meta Ads Expert</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-4">
+          <a href="#contact" class="btn btn-warning px-4 py-2 rounded-pill fw-semibold">Work With Me</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🌈 Background Glow -->
+  <div class="animated-grid"></div>
+</section>
+
+<!-- 🧠 GitHub Tips Marquee -->
+<div class="github-style-strip-dark my-4 rounded-4 shadow-sm overflow-hidden">
+  <div class="github-scroller d-flex align-items-center gap-3 px-3">
+    <div class="github-tip-dark">📈 Digital Marketing Trends 2025</div>
+    <div class="github-tip-dark">🎯 Get More Leads Online</div>
+    <div class="github-tip-dark">📸 Instagram Growth Tips</div>
+    <div class="github-tip-dark">🖥️ Landing Page Secrets</div>
+    <div class="github-tip-dark">🌱 Build Brand Organically</div>
+    <div class="github-tip-dark">🤖 Paid Ads vs Organic</div>
+    <div class="github-tip-dark">🧰 Tools for Creators</div>
+    <div class="github-tip-dark">📊 Funnel Optimization Guide</div>
+    <div class="github-tip-dark">💼 LinkedIn for B2B</div>
+  </div>
+</div>
+
+<!-- 🎨 Styles -->
+<style>
+  .text-gradient {
+    background: linear-gradient(90deg, #ff6ec4, #7873f5, #0fffc1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glow-wrap .glow {
+    position: absolute;
+    top: -12%;
+    left: -12%;
+    width: 125%;
+    height: 125%;
+    background: radial-gradient(circle, #facc15 0%, transparent 60%);
+    filter: blur(40px);
+    opacity: 0.15;
+    z-index: 0;
+    border-radius: 1rem;
+  }
+
+  .stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s ease;
+    color: #fff;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  }
+
+  .keyword {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+
+  .wave-highlight {
+    background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+  }
+
+  .github-style-strip-dark {
+    background: #1f1f1f;
+    border: 1px solid #333;
+    padding: 16px 0;
+  }
+
+  .github-scroller {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: scroll-linear 25s linear infinite;
+  }
+
+  .github-style-strip-dark:hover .github-scroller {
+    animation-play-state: paused;
+  }
+
+  .github-tip-dark {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid #444;
+    padding: 10px 16px;
+    border-radius: 8px;
+    color: #f1f1f1;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    transition: 0.3s ease;
+  }
+
+  .github-tip-dark:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+  }
+
+  @keyframes scroll-linear {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .animated-grid {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(#ffffff11 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: pulseGrid 8s linear infinite;
+    z-index: 0;
+  }
+
+  @keyframes pulseGrid {
+    0% { background-position: 0 0; }
+    100% { background-position: 40px 40px; }
+  }
+</style>
+
+<!-- ✨ Typing Effect + Count Animation -->
+<script>
+  // Typing Effect
+  const roleEl = document.querySelector('.typed-role');
+  const roles = ["Social Media Specialist", "Meta Ads Expert", "Creative Strategist"];
+  let idx = 0, char = 0, deleting = false;
+
+  function typeEffect() {
+    if (!roleEl) return;
+    if (deleting) {
+      roleEl.textContent = roles[idx].substring(0, char--);
+      if (char < 0) {
+        deleting = false;
+        idx = (idx + 1) % roles.length;
+        setTimeout(typeEffect, 500);
+      } else {
+        setTimeout(typeEffect, 40);
+      }
+    } else {
+      roleEl.textContent = roles[idx].substring(0, char++);
+      if (char <= roles[idx].length) {
+        setTimeout(typeEffect, 80);
+      } else {
+        deleting = true;
+        setTimeout(typeEffect, 1500);
       }
     }
-    .hero > div {
-      z-index: 2;
+  }
+  typeEffect();
+
+  // Count Animation
+  const counters = document.querySelectorAll('.count');
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const increment = target / 60;
+      if (count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCount, 30);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  });
+</script>
+
+
+
+
+
+
+
+
+<!-- 🔥 Stylish Projects Section (Final Merged & Enhanced Version) -->
+<section id="services" class="py-5 bg-black text-white text-center">
+  <div class="container">
+    <h2 class="display-4 fw-bold mb-3" style="background: linear-gradient(90deg, #ff6ec4, #7873f5); -webkit-background-clip: text; color: transparent;">
+      🚀 Your Leads, My Priority
+    </h2>
+    <p class="lead text-light mb-5 fade-in" style="animation-delay: 0.2s;">
+      Campaigns that turn ad spend into <span class="text-warning fw-semibold">real revenue</span>.
+    </p>
+
+    <div class="row g-4">
+      <!-- Meta Ads Card -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-card p-4 h-100 shadow-lg border border-warning border-opacity-25 rounded-4 bg-dark bg-opacity-50">
+          <h5 class="text-warning fw-bold fs-5 mb-3">📣 Meta Lead Generation</h5>
+          <p class="text-light fs-6 mb-3">
+            Boosted conversions by <strong>40%</strong> through smart targeting & hooks.
+          </p>
+          <ul class="list-unstyled text-start text-white-50 small mb-4">
+            <li>✅ Lookalike & Retargeting</li>
+            <li>🎯 Hook-based creatives</li>
+            <li>📈 10s testimonial videos</li>
+          </ul>
+
+        </div>
+      </div>
+
+      <!-- Responsive HTML Design Card -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="glass-card p-4 h-100 shadow-lg border border-info border-opacity-25 rounded-4 bg-dark bg-opacity-50">
+          <h5 class="text-info fw-bold fs-5 mb-3">💻 Responsive HTML Design</h5>
+          <p class="text-light fs-6 mb-3">
+            Sleek, mobile-first websites delivered in under <strong>5 days</strong>.
+          </p>
+          <ul class="list-unstyled text-start text-white-50 small mb-4">
+            <li>🧩 Bootstrap-based layout</li>
+            <li>⚡ Optimized for speed</li>
+            <li>🛠️ SEO & schema integrated</li>
+          </ul>
+
+        </div>
+      </div>
+
+      <!-- Reporting & Insights Card -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="glass-card p-4 h-100 shadow-lg border border-success border-opacity-25 rounded-4 bg-dark bg-opacity-50">
+          <h5 class="text-success fw-bold fs-5 mb-3">📊 Reporting & Insights</h5>
+          <p class="text-light fs-6 mb-3">
+            Turn metrics into <strong>marketing decisions</strong>.
+          </p>
+          <ul class="list-unstyled text-start text-white-50 small mb-4">
+            <li>📊 Visual dashboards</li>
+            <li>🧠 Monthly PDF insights</li>
+            <li>📅 Google Sheets sync</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🌟 AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ once: true, duration: 800 });
+</script>
+
+<!-- 🌈 Custom Styling -->
+<style>
+  .glass-card {
+    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.08);
+  }
+
+  .btn-glow {
+    transition: all 0.3s ease;
+    box-shadow: none;
+  }
+
+  .btn-glow:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .fade-in {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
     }
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
-    .hero p {
-      font-size: 1.25rem;
+  }
+
+  .text-white-50 {
+    color: rgba(255, 255, 255, 0.65) !important;
+  }
+</style>
+
+
+
+
+
+<style>
+    body {
+      background-color: #000;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      color: white;
     }
-    .btn-main {
-      background: #ffd700;
-      color: #000;
-      padding: 0.75rem 1.5rem;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: 0.3s;
+
+    .text-gradient {
+      background: linear-gradient(90deg, #ff6ec4, #7873f5, #0fffc1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .btn-main:hover {
-      background: #000;
-      color: #ffd700;
-      border: 1px solid #ffd700;
+
+    .metric-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 30px 20px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
     }
-    section {
-      padding: 80px 0;
-    }
-    .service-card {
-      background: #1f1f1f;
-      border-radius: 16px;
-      padding: 2rem;
-      transition: 0.3s;
-      border: 1px solid #2a2a2a;
-    }
-    .service-card:hover {
-      background: #292929;
+
+    .metric-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
     }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+
+    .icon-box {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      background-color: rgba(255, 255, 255, 0.1);
     }
-    .portfolio-item {
-      background: #1b1b1b;
-      padding: 1rem;
-      border-radius: 10px;
-      transition: transform 0.3s;
-      cursor: pointer;
+
+    /* Animated Background Grid */
+    .animated-grid {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: radial-gradient(#ffffff11 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: pulseGrid 4s linear infinite;
+      z-index: 0;
+      pointer-events: none;
     }
-    .portfolio-item:hover {
-      transform: scale(1.03);
-      background: #242424;
-    }
-    .testimonial {
-      background: #1a1a1a;
-      padding: 1.5rem;
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-    }
-    footer {
-      background: #111;
+
+    @keyframes pulseGrid {
+      0% { background-position: 0 0; }
+      100% { background-position: 40px 40px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="falling-icons"></div>
-    <div data-aos="fade-up">
-      <h1>PureHTML</h1>
-      <p>Clean, Fast & Stylish Websites Built with Love and Pure Code</p>
-      <a href="#contact" class="btn btn-main mt-3">Get Your Free Audit</a>
-    </div>
-  </header>
+<!-- 🚀 Advanced Meta Ads Campaign Results -->
+<section class="py-5 bg-black text-white position-relative overflow-hidden">
+  <div class="container position-relative z-1">
+    <h2 class="text-center fw-bold mb-3 display-8 text-gradient" data-aos="fade-up">
+      Meta Ads Performance Overview
+    </h2>
+    <p class="text-center text-secondary mb-5" data-aos="fade-up" data-aos-delay="100">
+      Real-time results from ongoing ad campaigns delivering growth and reach.
+    </p>
 
-
-
-
-<!-- About Section -->
-<section id="about" class="container py-5">
-  <div class="row align-items-center">
-    <!-- Left: Image -->
-    <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
-      <div class="position-relative">
-        <img src="image/favicon.png" alt="Mahesh J - Social Media Specialist" class="img-fluid rounded-4 shadow-lg" style="z-index:1; position:relative;">
-        <div class="bg-gradient position-absolute top-0 start-0 w-100 h-100 rounded-4 opacity-25" style="z-index:0;"></div>
-      </div>
-    </div>
-
-    <!-- Right: Content -->
-    <div class="col-md-6" data-aos="fade-left">
-      <h2 class="display-5 fw-bold mb-3">I'm Mahesh J</h2>
-      <p class="lead text-light mb-4">
-        A <strong>results-driven Social Media Specialist</strong> based in Bangalore. I combine scroll-stopping creative with data-backed strategies to deliver real results.
-      </p>
-      <p>
-        From building **lead-gen funnels** to managing Meta Ads that convert — I bring <strong>clarity, strategy & bold creative</strong> to the brands I work with.
-      </p>
-
-      <!-- Stats Cards -->
-      <div class="row text-center mt-4 g-3">
-        <div class="col-6 col-sm-3">
-          <div class="bg-dark bg-opacity-50 border border-light rounded-4 p-3 shadow-sm">
-            <h3 class="text-warning fw-bold mb-0">16+</h3>
-            <small class="text-light">Clients</small>
+    <div class="row g-4 text-center justify-content-center">
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="150">
+        <div class="metric-card">
+          <div class="icon-box text-success">
+            <i class="bi bi-cash-coin"></i>
           </div>
-        </div>
-        <div class="col-6 col-sm-3">
-          <div class="bg-dark bg-opacity-50 border border-light rounded-4 p-3 shadow-sm">
-            <h3 class="text-warning fw-bold mb-0">3+</h3>
-            <small class="text-light">Years Exp</small>
-          </div>
-        </div>
-        <div class="col-6 col-sm-3">
-          <div class="bg-dark bg-opacity-50 border border-light rounded-4 p-3 shadow-sm">
-            <h3 class="text-warning fw-bold mb-0">📍</h3>
-            <small class="text-light">Bangalore</small>
-          </div>
-        </div>
-        <div class="col-6 col-sm-3">
-          <div class="bg-dark bg-opacity-50 border border-light rounded-4 p-3 shadow-sm">
-            <h3 class="text-warning fw-bold mb-0">🔥</h3>
-            <small class="text-light">Meta Ads Expert</small>
-          </div>
+          <h3 class="fw-bold mt-3">₹<span class="countup" data-count="28">0</span></h3>
+          <p class="small text-white-50">Cost Per Lead</p>
         </div>
       </div>
 
-      <!-- CTA Button -->
-      <div class="mt-4">
-        <a href="#contact" class="btn btn-main px-4 py-2">Work With Me</a>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="metric-card">
+          <div class="icon-box text-primary">
+            <i class="bi bi-person-plus"></i>
+          </div>
+          <h3 class="fw-bold mt-3"><span class="countup" data-count="452">0</span>+</h3>
+          <p class="small text-white-50">Total Leads</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="250">
+        <div class="metric-card">
+          <div class="icon-box text-warning">
+            <i class="bi bi-bar-chart-line"></i>
+          </div>
+          <h3 class="fw-bold mt-3"><span class="countup" data-count="98000">0</span>+</h3>
+          <p class="small text-white-50">People Reached</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="metric-card">
+          <div class="icon-box text-danger">
+            <i class="bi bi-credit-card"></i>
+          </div>
+          <h3 class="fw-bold mt-3">₹<span class="countup" data-count="12600">0</span></h3>
+          <p class="small text-white-50">Total Spend</p>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- Animated Grid Background -->
+  <div class="animated-grid"></div>
 </section>
 
+<!-- Bootstrap Bundle JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 
-
-
-
-
-  <!-- Services Section -->
-<section id="services" class="container py-5">
-  <h2 class="text-center mb-5" data-aos="fade-up">What I Do</h2>
-  <div class="row g-4">
-    
-    <!-- Meta Lead Generation -->
-    <div class="col-md-4" data-aos="fade-up">
-      <div class="service-card text-start p-4 h-100">
-        <h4>📣 Meta Lead Generation</h4>
-        <p>Before & after ad creatives that boosted conversions by <strong>40%</strong>.</p>
-        <ul class="ps-3">
-          <li>✅ Audience targeting via Lookalike & Retargeting</li>
-          <li>🎯 Hook-based creatives with clear CTA</li>
-          <li>📈 10s client testimonial video proof</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Responsive HTML Design -->
-    <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-      <div class="service-card text-start p-4 h-100">
-        <h4>💻 Responsive HTML Design</h4>
-        <p>Clean, fast, and responsive web interfaces built with semantic HTML.</p>
-        <ul class="ps-3">
-          <li>🧩 Pixel-perfect structure using Bootstrap & Flexbox</li>
-          <li>⚡ Website delivered within 5 days</li>
-          <li>🛠️ Code optimized for scalability</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Reporting & Insights -->
-    <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-      <div class="service-card text-start p-4 h-100">
-        <h4>📊 Reporting & Insights</h4>
-        <p>Turning analytics into actionable growth reports for smarter decisions.</p>
-        <ul class="ps-3">
-          <li>📊 Custom-built dashboards</li>
-          <li>🧠 Clear, client-friendly insights</li>
-          <li>📅 Monthly PDF report samples</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</section>
+<!-- CountUp JS -->
+<script src="https://cdn.jsdelivr.net/npm/countup.js@2.6.2/dist/countUp.umd.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.countup').forEach(el => {
+      const endVal = parseInt(el.getAttribute('data-count'));
+      const countUp = new CountUp.CountUp(el, endVal);
+      if (!countUp.error) {
+        countUp.start();
+      } else {
+        console.error(countUp.error);
+      }
+    });
+  });
+</script>
 
 
 
@@ -243,107 +674,442 @@
 
 
 
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="container">
-    <h2 class="text-center mb-5" data-aos="fade-up">Featured Work</h2>
-    <div class="portfolio-grid">
-      <div class="portfolio-item" data-aos="fade-up" data-bs-toggle="modal" data-bs-target="#previewModal" data-title="Fitness Trainer" data-desc="Landing Page built for high conversion and mobile responsiveness.">
-        <h5>Fitness Trainer Landing Page</h5>
-        <p>Built for high conversion and mobile responsiveness.</p>
-      </div>
-      <div class="portfolio-item" data-aos="fade-up" data-bs-toggle="modal" data-bs-target="#previewModal" data-title="Startup Portfolio" data-desc="Modern, fast-loading, SEO-optimized site built with HTML/CSS.">
-        <h5>Startup Portfolio Website</h5>
-        <p>Modern, fast-loading, SEO-optimized site built with HTML/CSS.</p>
-      </div>
-      <div class="portfolio-item" data-aos="fade-up" data-aos-delay="200" data-bs-toggle="modal" data-bs-target="#previewModal" data-title="Agency One-Pager" data-desc="Minimalistic and smooth scrolling experience for a tech startup.">
-        <h5>Digital Agency One-Pager</h5>
-        <p>Minimalistic and smooth scrolling experience for a tech startup.</p>
+
+
+
+  <style>
+    body {
+      background-color: #000;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+    }
+
+    .text-gradient {
+      background: linear-gradient(to right, #ff6ec4, #7873f5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2), 0 0 40px #00ffe7;
+    }
+
+    .neon-glow {
+      text-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7;
+    }
+
+    .text-pink {
+      color: #ff6ec4;
+    }
+
+    .text-cyan {
+      color: #00ffe7;
+    }
+
+    .text-purple {
+      color: #9f6eff;
+    }
+
+    /* Modal Custom Style */
+    .modal-content {
+      background-color: #111;
+      border-radius: 20px;
+      color: #fff;
+      border: 1px solid #333;
+    }
+
+    .btn-close {
+      filter: invert(1);
+    }
+  </style>
+</head>
+
+  <!-- 🌌 Futuristic Portfolio Section -->
+  <section id="portfolio" class="py-5 bg-black text-white">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-4 text-gradient" data-aos="zoom-in">🚀 Featured HTML Projects</h2>
+      <p class="text-center text-secondary mb-5" data-aos="fade-up">
+        Explore my finest HTML works - crafted for performance, interactivity, and future-readiness.
+      </p>
+
+      <div class="row g-4">
+        <!-- Portfolio Item 1 -->
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="glass-card p-4 h-100 text-center" data-bs-toggle="modal" data-bs-target="#previewModal"
+            data-title="Fitness Trainer Landing Page"
+            data-desc="High-converting, fully responsive landing page tailored for fitness leads.">
+            <i class="bi bi-bar-chart-line-fill fs-1 text-pink mb-3 neon-glow"></i>
+            <h5 class="fw-bold mb-2">Fitness Trainer</h5>
+            <p class="text-secondary">Built for high conversion and sleek mobile UX.</p>
+          </div>
+        </div>
+
+        <!-- Portfolio Item 2 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass-card p-4 h-100 text-center" data-bs-toggle="modal" data-bs-target="#previewModal"
+            data-title="Startup Portfolio"
+            data-desc="Modern, SEO-optimized, pixel-perfect portfolio built with HTML5/CSS3.">
+            <i class="bi bi-rocket-takeoff fs-1 text-cyan mb-3 neon-glow"></i>
+            <h5 class="fw-bold mb-2">Startup Portfolio</h5>
+            <p class="text-secondary">Fast-loading, minimal and futuristic design.</p>
+          </div>
+        </div>
+
+        <!-- Portfolio Item 3 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="glass-card p-4 h-100 text-center" data-bs-toggle="modal" data-bs-target="#previewModal"
+            data-title="Digital Agency One-Pager"
+            data-desc="Clean UI/UX, scroll animations, perfect for SaaS & digital products.">
+            <i class="bi bi-cpu fs-1 text-purple mb-3 neon-glow"></i>
+            <h5 class="fw-bold mb-2">Agency One-Pager</h5>
+            <p class="text-secondary">Minimal, smooth-scrolling one-pager layout.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Modal -->
+  <!-- 🪟 Preview Modal -->
   <div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content bg-dark text-white">
+    <div class="modal-dialog modal-dialog-centered modal-lg text-dark">
+      <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="previewModalLabel">Project Title</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
-        <div class="modal-body" id="modalBody">
-          Project description goes here...
+        <div class="modal-body">
+          <p id="modalDescription">Project Description</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Testimonials Section -->
-  <section id="testimonials" class="container">
-    <h2 class="text-center mb-5" data-aos="fade-up">What Clients Say</h2>
-    <div class="testimonial" data-aos="fade-up">
-      <p>“PureHTML delivered a lightning-fast site that boosted our conversions by 40%. Mahesh is a rare talent!”</p>
-      <strong>- Raj, FitPro Coach</strong>
-    </div>
-    <div class="testimonial" data-aos="fade-up" data-aos-delay="100">
-      <p>“I wanted something clean and modern. Mahesh nailed it with elegance and speed.”</p>
-      <strong>- Arjun, Startup Founder</strong>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="container text-center">
-    <h2 data-aos="fade-up">Let's Build Something Amazing</h2>
-    <p data-aos="fade-up" data-aos-delay="100">Send me a message and let's talk about your next big idea.</p>
-    <form class="mt-4" data-aos="fade-up" data-aos-delay="200">
-      <input type="text" class="form-control mb-3" placeholder="Your Name" required>
-      <input type="email" class="form-control mb-3" placeholder="Your Email" required>
-      <textarea class="form-control mb-3" rows="5" placeholder="Your Message" required></textarea>
-      <button class="btn btn-main">Send Message</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer class="text-center py-4">
-    <p>© 2025 PureHTML – Built by Mahesh J with clean code 💻</p>
-    <div class="mt-2">
-      <a href="#" style="color:#ffd700; margin: 0 10px;">Instagram</a>
-      <a href="#" style="color:#ffd700; margin: 0 10px;">LinkedIn</a>
-      <a href="#" style="color:#ffd700; margin: 0 10px;">GitHub</a>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- AOS Animation -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
 
-    // Falling icons animation
+    const previewModal = document.getElementById('previewModal');
+    previewModal.addEventListener('show.bs.modal', event => {
+      const button = event.relatedTarget;
+      const title = button.getAttribute('data-title');
+      const desc = button.getAttribute('data-desc');
+
+      previewModal.querySelector('.modal-title').textContent = title;
+      previewModal.querySelector('#modalDescription').textContent = desc;
+    });
+  </script>
+</body>
+
+
+
+
+
+
+
+
+
+
+<!-- ✨ Premium Testimonials Section -->
+<section id="testimonials" class="py-5 bg-black text-white">
+  <div class="container">
+    <h2 class="text-center mb-5 display-4 fw-bold text-gradient" data-aos="fade-up">
+      Trusted by Visionaries
+    </h2>
+
+    <div class="row justify-content-center g-4">
+      <!-- Testimonial Card 1 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-card p-4 rounded-4 shadow-lg h-100">
+          <div class="d-flex align-items-center mb-3">
+            <img src="https://i.pravatar.cc/80?img=1" class="rounded-circle me-3" width="60" height="60" alt="Raj">
+            <div>
+              <h5 class="mb-0 fw-semibold">Raj</h5>
+              <small class="text-muted">FitPro Coach</small>
+            </div>
+          </div>
+          <p class="fst-italic">“PureHTML delivered a lightning-fast site that boosted our conversions by 40%. Mahesh is a rare talent!”</p>
+        </div>
+      </div>
+
+      <!-- Testimonial Card 2 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="glass-card p-4 rounded-4 shadow-lg h-100">
+          <div class="d-flex align-items-center mb-3">
+            <img src="https://i.pravatar.cc/80?img=2" class="rounded-circle me-3" width="60" height="60" alt="Arjun">
+            <div>
+              <h5 class="mb-0 fw-semibold">Arjun</h5>
+              <small class="text-muted">Startup Founder</small>
+            </div>
+          </div>
+          <p class="fst-italic">“I wanted something clean and modern. Mahesh nailed it with elegance and speed.”</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+   <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #1a1a1a, #121212);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+    }
+
+    .contact-section {
+      padding: 100px 20px;
+      background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80') no-repeat center center;
+      background-size: cover;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    .glass-container {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 50px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-control {
+      background-color: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      color: #fff;
+    }
+
+    .form-control:focus {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-color: #ff6ec4;
+      box-shadow: none;
+    }
+
+    .form-floating label {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .btn-main {
+      background: linear-gradient(90deg, #ff6ec4, #7873f5);
+      border: none;
+      padding: 12px 32px;
+      font-weight: bold;
+      color: #fff;
+      border-radius: 50px;
+      transition: 0.3s;
+    }
+
+    .btn-main:hover {
+      opacity: 0.9;
+    }
+
+    .text-gradient {
+      background: linear-gradient(90deg, #ff6ec4, #7873f5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 🌟 Advanced Contact Section -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="glass-container mx-auto" style="max-width: 900px;" data-aos="fade-up">
+      <div class="row g-5 align-items-center">
+        <!-- Text Side -->
+        <div class="col-md-5">
+          <h2 class="display-5 fw-bold text-gradient mb-3">Let’s Build Something Amazing</h2>
+          <p class="lead">Have a project or idea in mind? Share it and let’s create something truly exceptional together.</p>
+        </div>
+
+        <!-- Form Side -->
+        <div class="col-md-7">
+          <form>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+              <label for="name">Your Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+              <label for="email">Your Email</label>
+            </div>
+            <div class="form-floating mb-4">
+              <textarea class="form-control" placeholder="Your Message" id="message" style="height: 120px" required></textarea>
+              <label for="message">Your Message</label>
+            </div>
+            <button class="btn btn-main w-100" type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+
+
+
+
+
+
+<!-- 🌌 Advanced Glassmorphism Footer -->
+<footer class="footer-glass text-white text-center py-4 position-relative">
+  <div class="container">
+    <p class="mb-1 fs-5">
+      © 2025 <strong class="text-gradient">PureHTML</strong> – Built by <strong>Mahesh J</strong> with clean code 💻
+    </p>
+    
+    <div class="social-icons mt-3 d-flex justify-content-center gap-4">
+      <a href="#" class="icon-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="icon-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" class="icon-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- 🧊 Footer Styles -->
+<style>
+.footer-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -5px 20px rgba(255, 255, 255, 0.05);
+  z-index: 10;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #ff6ec4, #7873f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.icon-link {
+  font-size: 1.5rem;
+  color: #ffd700;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon-link:hover {
+  color: #ffffff;
+  transform: scale(1.2);
+  text-shadow: 0 0 10px #ffd700;
+}
+</style>
+
+<!-- ✅ Font Awesome CDN (Include once in <head> or before </body>) -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+
+
+  <!-- Bootstrap & AOS Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  // Initialize AOS library
+  AOS.init();
+
+  // Falling icons animation setup
+  document.addEventListener("DOMContentLoaded", () => {
     const icons = ['💰', '🤑', '👤', '📈', '💵', '📊'];
     const container = document.querySelector('.falling-icons');
 
-    function createFallingIcon() {
-      const icon = document.createElement('div');
-      icon.classList.add('falling-icon');
-      icon.textContent = icons[Math.floor(Math.random() * icons.length)];
-      icon.style.left = Math.random() * 100 + 'vw';
-      icon.style.animationDuration = (3 + Math.random() * 4) + 's';
-      icon.style.fontSize = (20 + Math.random() * 20) + 'px';
-      container.appendChild(icon);
-      icon.addEventListener('animationend', () => icon.remove());
+    if (container) {
+      function createFallingIcon() {
+        const icon = document.createElement('div');
+        icon.classList.add('falling-icon');
+        icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+        icon.style.left = Math.random() * 100 + 'vw';
+        icon.style.animationDuration = (3 + Math.random() * 4) + 's';
+        icon.style.fontSize = (20 + Math.random() * 20) + 'px';
+
+        container.appendChild(icon);
+        icon.addEventListener('animationend', () => icon.remove());
+      }
+
+      setInterval(createFallingIcon, 300);
     }
 
-    setInterval(createFallingIcon, 300);
+    // CountUp animation
+    const counters = document.querySelectorAll('.countup');
+
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-count');
+        const count = +counter.innerText;
+        const speed = 50;
+        const increment = target / speed;
+
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target.toLocaleString();
+        }
+      };
+
+      updateCount();
+    });
 
     // Portfolio modal content update
     const previewModal = document.getElementById('previewModal');
-    previewModal.addEventListener('show.bs.modal', function (event) {
-      const trigger = event.relatedTarget;
-      const title = trigger.getAttribute('data-title');
-      const desc = trigger.getAttribute('data-desc');
-      previewModal.querySelector('.modal-title').textContent = title;
-      document.getElementById('modalBody').textContent = desc;
-    });
-  </script>
+    if (previewModal) {
+      previewModal.addEventListener('show.bs.modal', function (event) {
+        const trigger = event.relatedTarget;
+        const title = trigger.getAttribute('data-title') || '';
+        const desc = trigger.getAttribute('data-desc') || '';
+
+        const modalTitle = previewModal.querySelector('.modal-title');
+        const modalBody = document.getElementById('modalBody');
+
+        if (modalTitle) modalTitle.textContent = title;
+        if (modalBody) modalBody.textContent = desc;
+      });
+    }
+  });
+</script>
+
+
+
+
+
+
 </body>
 </html>
