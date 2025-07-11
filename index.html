@@ -350,10 +350,10 @@
           <h2 class="display-5 fw-bold mb-3 shine-text">Who Am I?</h2>
           <p class="lead">
             I’m <strong>Mahesh J</strong>, a <span class="typed-role text-info fw-semibold"></span> based in Bangalore.
-            I blend scroll-stopping creative with data-backed strategy to help brands convert.
+            I design sleek, modern websites that don’t just look stunning they convert.
           </p>
           <p>
-            From lead-gen funnels to Meta Ads & storytelling, I bring <span class="wave-highlight">clarity, consistency & creativity</span> to the table.
+            From landing pages to full website layouts, I blend aesthetic appeal with <span class="wave-highlight">clarity, consistency & creativity</span> to the strategic design to deliver smooth, scroll-worthy experiences.
           </p>
 
           <!-- 📊 Stats -->
@@ -397,7 +397,7 @@
   <!-- === Typing + Count Animation Scripts === -->
   <script>
     const roleEl = document.querySelector('.typed-role');
-    const roles = ["Social Media Specialist", "Meta Ads Expert", "Creative Strategist"];
+    const roles = ["Web Developer", "Social Media Specialist", "Creative Strategist"];
     let i = 0, j = 0, del = false;
     function type() {
       if (!roleEl) return;
@@ -438,10 +438,10 @@
 <section id="services" class="py-5 bg-black text-white text-center">
   <div class="container">
     <h2 class="display-4 fw-bold mb-3" style="background: linear-gradient(90deg, #ff6ec4, #7873f5); -webkit-background-clip: text; color: transparent;">
-       Your Leads, My Priority 🚀
+       Your Website, My Priority 🚀
     </h2>
     <p class="lead text-light mb-5 fade-in" style="animation-delay: 0.2s;">
-      Campaigns that turn ad spend into <span class="text-warning fw-semibold">real revenue</span>.
+      Websites that turn clicks into  <span class="text-warning fw-semibold">real customers</span>.
     </p>
 
     <div class="row g-4">
@@ -865,10 +865,11 @@
             <img src="https://i.pravatar.cc/80?img=1" class="rounded-circle me-3" width="60" height="60" alt="Raj">
             <div>
               <h5 class="mb-0 fw-semibold">Raj</h5>
-              <small class="text-muted">FitPro Coach</small>
+              <small class="text-gradient">FitPro Coach</small>
             </div>
           </div>
           <p class="fst-italic">“PureHTML delivered a lightning-fast site that boosted our conversions by 40%. Mahesh is a rare talent!”</p>
+        <a href="https://maheshjeyasamraj.github.io/pt4u/" target="_blank" class="text-decoration-none text-gradient fw-bold">Visit Website</a>
         </div>
       </div>
 
@@ -879,20 +880,16 @@
             <img src="https://i.pravatar.cc/80?img=2" class="rounded-circle me-3" width="60" height="60" alt="Arjun">
             <div>
               <h5 class="mb-0 fw-semibold">Arjun</h5>
-              <small class="text-muted">Startup Founder</small>
+              <small class="text-gradient" >Startup Founder</small>
             </div>
           </div>
           <p class="fst-italic">“I wanted something clean and modern. Mahesh nailed it with elegance and speed.”</p>
+          <a href="https://solspa.co.in/" target="_blank" class="text-decoration-none text-gradient fw-bold">Visit Website</a>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
-
-
-
 
    <style>
     body {
@@ -966,8 +963,8 @@
       -webkit-text-fill-color: transparent;
     }
   </style>
-</head>
-<body>
+
+
 
 <!-- 🌟 Advanced Contact Section -->
 <section id="contact" class="contact-section">
@@ -977,25 +974,26 @@
         <!-- Text Side -->
         <div class="col-md-5">
           <h2 class="display-5 fw-bold text-gradient mb-3">Let’s Build Something Amazing</h2>
-          <p class="lead">Have a project or idea in mind? Share it and let’s create something truly exceptional together.</p>
+          <p class="lead">Call to +91 98863 18187</p>
         </div>
 
         <!-- Form Side -->
         <div class="col-md-7">
-          <form>
+          <form action="https://formspree.io/f/mldnqapk" method="POST" id="contact-form">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+              <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required>
               <label for="name">Your Name</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
               <label for="email">Your Email</label>
             </div>
             <div class="form-floating mb-4">
-              <textarea class="form-control" placeholder="Your Message" id="message" style="height: 120px" required></textarea>
+              <textarea class="form-control" name="message" id="message" placeholder="Your Message" style="height: 120px" required></textarea>
               <label for="message">Your Message</label>
             </div>
             <button class="btn btn-main w-100" type="submit">Send Message</button>
+            <p id="form-status" class="mt-3 text-center fw-semibold"></p>
           </form>
         </div>
       </div>
@@ -1003,16 +1001,39 @@
   </div>
 </section>
 
-<!-- Scripts -->
+<!-- ✨ AOS + Bootstrap Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();
 </script>
 
+<!-- ✅ Form Submit Handler -->
+<script>
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
 
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
 
-
+    if (response.ok) {
+      status.innerText = "✅ Message sent successfully!";
+      status.style.color = "#66ff99";
+      form.reset();
+    } else {
+      status.innerText = "❌ Something went wrong. Please try again.";
+      status.style.color = "#ff6666";
+    }
+  });
+</script>
 
 
 
